@@ -1,0 +1,30 @@
+[
+    {
+        "titulo": "Practica 1",
+        "estado": "terminada"
+    },
+    {
+        "titulo": "Practica 2",
+        "estado": "terminada"
+    },
+    {
+        "titulo": "Practica 3",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Practica 4",
+        "estado": "en proceso"
+    },
+    {
+        "titulo": "Practica 5",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Practica 6",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Practica 7",
+        "estado": "terminada"
+    } 
+]
