@@ -19,6 +19,17 @@ let autos = [{
     anio: 2019,
     patente: 'JJK116',
     vendido: false
+},
+{
+ marca: 'Toyota',
+modelo: 'Corolla',
+precio: 100,
+km: 0,
+color: 'Blanco',
+cuotas: 14,
+anio: 2019,
+patente: 'JJK116',
+vendido: false
 }]
 
 module.exports = autos;

@@ -68,11 +68,63 @@ let concesionaria = {
             datos.push(auto.precio)
         })
         return datos
+    },
+    totalDeVentas: function(){
+        let valores = this.listaDeVentas();
+        let totalVentas = valores.reduce(function(acum,num){
+            return acum + num            
+        },0)           
+        //el ,0 sirve para poner el valor como default cuando no hay valores
+        return totalVentas
+    },
+    puedeComprar: function(auto,persona){
+        let resultado = ''
+        let precioAuto = auto.precio
+        let precioXCuotaAuto = precioAuto / auto.cuotas
+        if(persona.capacidadDePagoEnCuotas > precioXCuotaAuto && precioAuto < persona.capacidadDePagoTotal){
+            resultado = true
+        } else {
+            resultado = false
+        }
+    return resultado
+    },
+    autosQuePuedeComprar: function(persona){
+        let autosParaComprar = [];
+        let autosParaVender = this.autosParaLaVenta();
+        for (let i = 0; i<autosParaVender.length; i++){
+            var res = this.puedeComprar(autosParaVender[i],persona)
+            if(res == true){
+                autosParaComprar.push(autosParaVender[i])
+            }
+        }
+        return autosParaComprar
+        }
     }
  
- }
+ 
+
+ var auto1 = {
+    marca: 'Ford',
+    modelo: 'Fiesta',
+    precio: 120000,
+    km: 200,
+    color: 'Azul',
+    cuotas: 12,
+    anio: 2019,
+    patente: 'APL123',
+    vendido: false
+}
+var persona = {
+    nombre: "Juan",
+    capacidadDePagoEnCuotas: 20000,
+    capacidadDePagoTotal: 150000
+}
+//console.log(concesionaria.venderAuto('APL123'));
+//console.log(concesionaria.listaDeVentas());
+//console.log(concesionaria.totalDeVentas());
+//console.log(concesionaria.puedeComprar(auto1, persona));
+
+console.log(concesionaria.autosQuePuedeComprar(persona));
 
 
-console.log(concesionaria.venderAuto('APL123'));
-console.log(concesionaria.venderAuto('JJK116'));
-console.log(concesionaria.listaDeVentas());
+
