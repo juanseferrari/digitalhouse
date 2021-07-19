@@ -57,9 +57,22 @@ let concesionaria = {
             return auto.km < 100
         });
         return autosNuevos;
+    },
+    listaDeVentas: function(){
+        var datos = []
+        let autosParaVenta = autos.filter(function(auto){
+            return auto.vendido == true
+            }
+        )
+        autosParaVenta.forEach(function(auto){
+            datos.push(auto.precio)
+        })
+        return datos
     }
  
  }
 
 
-console.log(concesionaria.autosNuevos())
+console.log(concesionaria.venderAuto('APL123'));
+console.log(concesionaria.venderAuto('JJK116'));
+console.log(concesionaria.listaDeVentas());
