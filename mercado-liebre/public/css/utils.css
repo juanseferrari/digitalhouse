@@ -1,0 +1,49 @@
+/* -------------------- Globales ------------------ */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-size: 12px
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center
+
+}
+
+header {
+    background-color: #EAC926;
+}
+
+a {
+    text-decoration: none
+}
+
+h3 {
+    text-align: center
+
+}
+
+ul {
+    list-style: none
+}
+
+/* ----------------- Clases genéricas --------------------*/
+.align-center {
+    text-align: center
+}
+
+.icono-grande {
+    font-size:2em;
+    margin-bottom: 10px
+}
+
+
+/* ------------------- Colores ---------------------------*/
+
+.azul {
+    color:#1259c3;;
+}

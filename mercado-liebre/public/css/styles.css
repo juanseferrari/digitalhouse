@@ -1,0 +1,30 @@
+/* --------------------- Clases ---------------*/
+.precio {
+    font-size: 18px
+}
+.descuento {
+    font-size: 16px
+}
+
+.descripcion {
+    font-size: 16px
+}
+
+
+.menu {
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+}
+.menu i{
+    background-color: #03264C;
+    padding: 15px;
+    border-radius: 10px;
+    
+}
+
+/*--------------- Footer ------------- */
+
+
+
+
