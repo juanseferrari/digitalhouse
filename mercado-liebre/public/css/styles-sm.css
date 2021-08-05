@@ -1,0 +1,83 @@
+/* --------------------- Clases ---------------*/
+.precio {
+    font-size: 18px;
+    margin: 5px 0 0 0;
+}
+.descuento {
+    font-size: 16px;
+    color: green;
+    margin-top: 2px;
+}
+
+.descripcion {
+    font-size: 16px;
+    padding: 0 0 15px 0;
+}
+
+
+.menu {
+    text-align: center;
+    font-size: 28px;
+    margin: 10px;
+}
+.menu i{
+    background-color: #03264C;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    
+}
+
+.contenedor-info {
+    border-top: 1px solid #ebebeb;
+    padding-top: 10px;
+
+}
+.contenedor-info p {
+    text-align: left;
+    padding-left: 20px;
+}
+.contenedor-info i {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.nav-principal{
+    display:none;
+}
+.camion{
+    border: 1px solid green;
+    border-radius: 50%;
+    padding: 8px;
+    color: green;
+    text-align: left;
+}
+
+.imagen-articulo{
+    padding: 5%;
+}
+.titulo-principal {
+    margin-top: 0;
+    padding-top: 15px;
+}
+
+
+/* --------------- CONTENIDO X ID -----------------------*/
+#main-content{
+    width: 100%;
+    text-align: center;
+    padding: 0 5%;
+    margin: 0 auto;
+    background-color: #ebebeb;
+}
+
+
+
+
+
+
+/*--------------- Footer ------------- */
+
+
+/*----------------- MEDIA QUERIES ------------------------*/
+
