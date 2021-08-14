@@ -4,3 +4,38 @@
 .burger-menu{
     display: none;
 }
+
+/*----------------------- Hovers ----------------------*/
+
+.descripcion {
+    opacity: 0;
+}
+
+article:hover {
+    box-shadow: 0px 0px 15px rgb(100,100,100);
+    transition: all, 0.3s;
+}
+
+article:hover .descripcion {
+    transition: opacity ease-in 300ms;
+    opacity: 1;
+}
+
+article:hover .camion {
+    transform: rotate(360deg);
+    transition: all ease 0.3s; 
+}
+.login:hover a{
+    color: #0022AA;
+    
+}
+
+.icono-grande:hover {
+    transform: rotate(360deg);
+    transition: all ease 0.5s;
+    color: cadetblue;
+}
+
+
+
+

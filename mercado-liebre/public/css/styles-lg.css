@@ -1,0 +1,9 @@
+.footer-principal {
+    display: flex;
+    padding: 10px;
+    
+}
+
+.icono-grande {
+    width: 33%;
+}
