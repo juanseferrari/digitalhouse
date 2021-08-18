@@ -13,7 +13,10 @@
 margin: 15px;
 }
 .contenedor-header {
+    margin: 15px 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .logo-principal {
     width: 50%;
@@ -28,7 +31,12 @@ margin: 15px;
 
 .product-wrapper {
     padding: 10px;
-    width: 25%;
+    width: 33%;
+}
+
+
+.footer-container {
+    display: flex;
 }
 
 /*----------------------- Hovers ----------------------*/

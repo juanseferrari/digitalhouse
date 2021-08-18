@@ -76,6 +76,10 @@
     padding-top: 15px;
 }
 
+header h3 {
+    margin: 15px;
+}
+
 
 /*----------------- Productos --------------------------*/
 .camion{
@@ -165,7 +169,16 @@
 
 
 /*--------------- Footer ------------- */
+.footer-principal {
+    margin: 10px;
+}
+.footer-container {
+    display: block;
 
+}
+.footer-container section {
+    margin: 15px 0;
+}
 
 /*----------------- MEDIA QUERIES ------------------------*/
 
