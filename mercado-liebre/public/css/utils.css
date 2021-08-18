@@ -68,6 +68,10 @@ main {
     margin: 0;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* ------------------- Colores ---------------------------*/
 
