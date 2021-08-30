@@ -1,13 +1,13 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
+let mainController = require('../controllers/mainController.js')
+ 
 
-router.get('/', (req,res) => {
-    res.send("Bienvenidos a la pagina principal")
-})
 
-router.get('/contacto', (req,res) => {
-    res.send("Bienvenidos a la pagina de contacto")
-})
+router.get('/', mainController.home)
+
+router.get('/about', mainController.about)
 
 
 module.exports = router;
