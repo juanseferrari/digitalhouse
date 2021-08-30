@@ -11,4 +11,7 @@ router.get('/about', mainController.about)
 
 router.get('/login', mainController.login)
 
+router.get('/list', mainController.list)
+
+
 module.exports = router;

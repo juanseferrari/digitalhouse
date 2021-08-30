@@ -123,3 +123,11 @@ html {
     min-height: 400px;
     }
 }
+
+
+.par {
+    border: 1px solid green;
+}
+.impar {
+    border: 1px solid red;
+}

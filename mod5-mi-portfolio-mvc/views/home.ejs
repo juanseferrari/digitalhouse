@@ -31,6 +31,24 @@
       </div>
     </div>
 
+    <!-- PRUEBAS DE EJS-->
+    <div>
+      <% for (let i = 0; i<10; i++) { %>
+        <% if ( i % 2 == 0) { %>
+          <label for="hobbies"> Hobbie <%= i %></label>
+          <input type="text" class="par" name="hobbies">
+        <% } else { %>
+          <label for="hobbies"> Hobbie <%= i %></label>
+          <input type="text" class="impar" name="hobbies">
+          <% } %>
+          
+
+
+      <% } %>
+    
+      
+    </div>
+
     <div class="mvc-content mvc-container mvc-padding-64" id="about">
       <h3 class="mvc-center">My Porfolio</h3>
       <p class="mvc-center"><em>I love photography</em></p>
