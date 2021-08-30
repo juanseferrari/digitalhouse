@@ -9,5 +9,6 @@ router.get('/', mainController.home)
 
 router.get('/about', mainController.about)
 
+router.get('/login', mainController.login)
 
 module.exports = router;

@@ -2,12 +2,15 @@ const path = require('path');
 
 const mainController = {
     home: function(req,res){
-        res.sendFile(path.resolve(__dirname, "../views/home.html"));
+        /** Esta es la forma de renderizar un modelo de ejs */
+        res.render('home');
     },
     about: function(req,res){
-        res.sendFile(path.resolve(__dirname, "../views/about.html"));
+        res.render('about');
     },
-
+    login: function(req,res){
+        res.render('login');
+    }
 };
 
 module.exports = mainController;
