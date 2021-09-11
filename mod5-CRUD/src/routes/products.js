@@ -27,14 +27,14 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-router.post('/', uploader.single("image"), productsController.store); 
+router.post('/', uploader.single("imagen"), productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/:id', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/:id/edit', productsController.edit); 
+router.get('/edit/:id', productsController.edit); 
 router.put('/:id', productsController.update); 
 
 

@@ -21,7 +21,8 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
-
+//locals
+app.locals.toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
