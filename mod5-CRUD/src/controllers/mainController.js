@@ -1,20 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const productService = require('../services/products-service')
  
 
 const controller = {
 	index: (req, res) => {
 		// Do the magic
+		const filteredProducts = productService.findAll();
 		//mostramos en dos arrays, uno de destacados y otro en oferta
-		const visitedProducts = products.filter((prod) => {
-			return prod.category == "visited"
-		})
-		const inSaleProducts = products.filter((prod) => {
-			return prod.category == "in-sale"
-		})
+		const visitedProducts = productService.filterByCategory("visited")
+		const inSaleProducts = productService.filterByCategory("in-sale")
 
 		//renderizar
 		res.render("index", {visitedProducts, inSaleProducts})
