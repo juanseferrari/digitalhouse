@@ -3,6 +3,10 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+// *********** Middlewares ***************
+const adminValidation = require('../middlewares/adminValidation');
+const userLogs = require('../middlewares/userLogs');
+
 // MULTER
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -23,18 +27,18 @@ const uploader = multer({
 const productsController = require('../controllers/productsController');
 
 /*** GET ALL PRODUCTS ***/ 
-router.get('/', productsController.index); 
+router.get('/',userLogs ,productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/create', productsController.create); 
+router.get('/create',adminValidation, productsController.create); 
 router.post('/', uploader.single("imagen"), productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/:id', productsController.detail); 
+router.get('/:id',userLogs ,productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
+router.get('/edit/:id',userLogs, productsController.edit); 
 router.put('/:id', productsController.update); 
 
 

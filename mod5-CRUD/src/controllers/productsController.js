@@ -19,7 +19,8 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render("product-create-form")
+		const adminUser = req.admin
+		res.render("product-create-form", {adminUser})
 	},
 	
 	// Create -  Method to store
