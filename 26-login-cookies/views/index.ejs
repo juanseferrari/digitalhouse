@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TITULO</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>TITULO</h1>
+    <p>Welcome to TITULO</p>
+
+    <% if(locals.errors){ %>
+    <div>
+      <% for (let error of errors){ %>
+        <li><%= error.msg %></li>
+        <% }%>
+    </div>
+
+    <% } %>
+
+    
+
+
+
+    <form action="/users" method="POST">
+      <div>
+        <label for="name">Ingrese su nombre:</label>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <label for="color">Seleccione su color</label>
+        <select name="color" id="color">
+          <option value="azul">Azul</option>
+          <option value="verde">Verde</option>
+          <option value="rojo">Rojo</option>
+          <option value="amarillo">Amarillo</option>
+
+        </select>
+      </div>
+      <div>
+        <label for="email">Ingrese su email:</label>
+        <input type="email" name="email" id="email">
+      </div>
+
+      <div>
+        <label for="age">Ingrese su edad:</label>
+        <input type="number" name="age">
+      </div>
+
+      <button type="submit">Enviar</button>
+
+    </form>
+  </body>
+</html>
