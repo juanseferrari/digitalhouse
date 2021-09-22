@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var userController = require('../controllers/userController')
 
-const {body, validationResult} = require('express-validator')
+const {check, body, validationResult} = require('express-validator')
 let validation = [
   body('name').notEmpty().withMessage('Debes completar el name'),
   body('color').notEmpty().withMessage('Debes completar el color'),
@@ -19,9 +20,19 @@ function checkValidation(req,res, next){
   }
 }
 
+let loginValidation = [
+  check('email').isEmail(),
+  check('password').isLength({min: 8}).withMessage("Contraseña debe contener maximo 8 caracteres")
+]
+
 /* GET users listing. */
 router.post('/', validation, checkValidation, function(req, res, next) {
     res.render('welcome', {user: req.body});
 });
+
+router.get('/login', userController.login);
+
+router.post('/login',loginValidation, userController.processLogin);
+
 
 module.exports = router;
