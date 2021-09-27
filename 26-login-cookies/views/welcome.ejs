@@ -3,6 +3,11 @@
   <head>
     <title>TITULO</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      body {
+          background-color: <%= user.color %>
+      }
+    </style>
   </head>
   <body>
     <p>Hola <%= user.name %>, elegiste el color: <%= user.color  %>, tu email es:

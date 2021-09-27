@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TITULO</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>HOLA! Bienvenido a editar productos</h1>
+    <p>Solamente los usuarios logueados pueden acceder a esta ventana</p>
+
+    <% if(locals.errors){ %>
+    <div>
+      <% for (let error of errors){ %>
+        <li><%= error.msg %></li>
+        <% }%>
+    </div>
+
+    <% } %>
+
+    
+
+
+  </body>
+</html>

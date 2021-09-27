@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>REGISTER</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>REGISTER</h1>
+    <p>Welcome to REGISTER</p>
+
+    <% if(locals.errors){ %>
+    <div>
+      <% for (let error of errors){ %>
+        <li><%= error.msg %></li>
+        <% }%>
+    </div>
+
+    <% } %>
+
+    
+
+
+
+    <form action="/users/register" method="POST">
+      <div>
+        <label for="name">Ingrese su nombre:</label>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <label for="age">Ingrese su edad:</label>
+        <input type="number" name="age">
+      </div>
+      <div>
+        <label for="email">Ingrese su email:</label>
+        <input type="email" name="email">
+      </div>
+      <div>
+        <label for="password">Ingrese su contraseña:</label>
+        <input type="password" name="password" id="password">
+      </div>
+
+      <button type="submit">Register</button>
+
+    </form>
+  </body>
+</html>
