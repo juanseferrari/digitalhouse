@@ -1,1 +1,9 @@
-[{"name":"juanse","age":"25","email":"juansegundoferrari@gmail.com","password":"$2b$10$xO8QWRt2id0MY4ILw/9sSum.RPVU3jfq7NBULI839syQivzq80ub."}]
+[
+    {
+        "id": 1,
+        "name": "Juan Segundo Ferrari",
+        "age": "12",
+        "email": "juansegundoferrari@gmail.com",
+        "password": "$2a$10$HUo76mohrcfLGoLenn/Kp.1AnXCxPMs3zz2nNNoowBJeGDQqAGF.S"
+    }
+]

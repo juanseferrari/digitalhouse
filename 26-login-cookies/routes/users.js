@@ -41,21 +41,22 @@ router.post('/', validation, checkValidation, function(req, res, next) {
 
 
 //LOGIN
-router.get('/login', userController.login);
+router.get('/login',guestMiddleware, userController.login);
 router.post('/login',loginValidation, userController.processLogin);
 
 router.get('/check', function(req,res){
   if(req.session.usuarioLogueado == undefined){
     res.send("no estas logueado")
   } else {
-    res.send("El usuario logueado es: " + eq.session.usuarioLogueado.email)
+    res.send("El usuario logueado es: " + req.session.usuarioLogueado.email)
   }
 });
 
 // REGISTER
-router.get('/register', guestMiddleware ,userController.register);
-router.post('/register' ,userController.create);
+router.get('/register',guestMiddleware ,userController.register);
+router.post('/register',loginValidation ,userController.processRegister);
 
+router.get('/logout', userController.logout);
 
 
 module.exports = router;

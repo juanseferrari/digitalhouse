@@ -1,7 +1,9 @@
 const fs = require('fs');
 const { validationResult } = require("express-validator");
 const { json } = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
+
+const registerUser = require('../models/User')
 
 
 let userController = {
@@ -9,68 +11,81 @@ let userController = {
         res.render('login')
     },
     processLogin: (req,res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            let usersJson = fs.readFileSync('users.json', {errors: errors})
-            let users;
-            if (usersJson == ""){
-                users = [];
-            } else {
-                users = JSON.parse(usersJson)
-            }
+        let userToLogin = registerUser.findbyField('email', req.body.email);
 
-            for (let i = 0; i < users.length; i++){
-                if(users[i].email == req.body.email && bcrypt.compareSync(req.body.password, users[i].password )){
-                    console.log("Te pudiste loguear bien");
-                    res.render('home', {user: users[i]} )           
+        if(userToLogin) {
+            let isOkPassword = bcrypt.compareSync(req.body.password, userToLogin.password)
+            if(isOkPassword){
+                //Logueo Exitoso
+
+                //guardar el usuario en session
+                delete userToLogin.password
+                req.session.usuarioLogueado = userToLogin
+                //console.log(userToLogin)
+
+                res.render('home', {user: req.session.usuarioLogueado} ) 
+            }
+            // Contraseña incorrecta
+            return res.render('login', {errors: {
+                email: {
+                    msg: "Las credenciales son inválidas"
                 }
             }
-            /** 
-            if(usuarioALoguearse == undefined){
-                 res.render('login', {errors: [
-                    {msg: "Credenciales invalidas"}
-                ]})
-            }
-            req.session.usuarioLogeado = usuarioALoguearse
-            console.log("usuario logueado:" + req.session.usuarioLogeado)
-            */
-            res.send('logeo con error')
-        
+            })
             
-        } else {
-            return res.render('login',{errors: errors.errors})
         }
+
+        // Mail no encontrado
+        return res.render('login', {errors: {
+            email: {
+                msg: "No se encuentra este email en nuestra base de datos"
+            }
+        }
+        })
 
     },
     edit: (req,res) => {
         res.render('editarProductos')
     },
     register: (req,res) => {
+
         res.render('register')
     },
     //CREAR UN NUEVO USUARIO
-    create: (req,res) => {
-        //console.log(req);
-        let usuarioACrear = {
-            name: req.body.name,
-            age: req.body.age,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password,10) 
+    processRegister: (req,res) => {
+        const resultValidation = validationResult(req);
+     
+        if (resultValidation.isEmpty()) {
+            let userInDB = registerUser.findbyField('email', req.body.email)
 
-        }
-        console.log(usuarioACrear)
-        let usersJson = fs.readFileSync('users.json')
-        let usuarios;
-        if (usersJson == ""){
-            usuarios = [];
+            if (userInDB) {
+                let errorUserLogged = [{
+                    msg: "Este mail ya esta registrado"
+                    
+                }]
+                return res.redirect('register', {errors: errorUserLogged});
+            }
+
+            let usuarioACrear = {
+                name: req.body.name,
+                age: req.body.age,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password,10) 
+            }
+            console.log(usuarioACrear)
+
+            let userCreated = registerUser.create(usuarioACrear)
+            return res.redirect("/users/login")
+
         } else {
-            usuarios = JSON.parse(usersJson)
-        }
-        usuarios.push(usuarioACrear)
-        usuariosJSON = JSON.stringify(usuarios);
-        fs.writeFileSync('users.json', usuariosJSON);
-        res.send('REGISTRO EXITOSO')
+            return res.render('register', {errors:errors.errors})
 
+        }
+    },
+    logout: (req,res) => {
+        res.clearCookie('userEmail')
+        req.session.destroy();
+        return res.redirect('/home')
     }
 }
 

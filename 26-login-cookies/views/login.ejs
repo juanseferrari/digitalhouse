@@ -8,16 +8,7 @@
     <h1>LOGIN</h1>
     <p>Welcome to LOGIN</p>
 
-    <% if(locals.errors){ %>
-    <div>
-      <% for (let error of errors){ %>
-        <li><%= error.msg %></li>
-        <% }%>
-    </div>
-
-    <% } %>
-
-    
+   
 
 
 
@@ -25,6 +16,10 @@
       <div>
         <label for="email">Ingrese su email:</label>
         <input type="email" name="email">
+        <% if(locals.errors && errors.email) { %>
+          <div><%= errors.email.msg %></div>
+        <% } %>
+
       </div>
       <div>
         <label for="password">Ingrese su contraseña:</label>

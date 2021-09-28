@@ -7,6 +7,8 @@ var logger = require('morgan');
 // requerimos el middleware de express-session
 var session = require('express-session')
 
+var userLoggedMiddleware = require('./middlewares/userLoggedMiddleware')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -26,6 +28,7 @@ app.use(session({
   saveUninitialized: true
 
 }))
+app.use(userLoggedMiddleware)
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
