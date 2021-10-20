@@ -17,6 +17,13 @@
     <p>AWARDS: <%= movie.awards %> </p>
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <% if(movie.actors) {  %>
+    <% for (let i = 0; i<movie.actors.length; i++) { %>
+        <p>Actores: <%= movie.actors[i].first_name %> <%= movie.actors[i].last_name %> </p>
+    <% } %>
+    <%  } else { %>
+        <p>Actor: ninguno </p>        
+    <% }  %>
 
     <a href="/movies/edit/<%= movie.id %>"> EDITAR </a>
     <br>

@@ -26,6 +26,14 @@
             <label for="length">Length </label>
             <p><input type="number" name="length" id="" value="<%= Movie.length %>" required></p>
             <br>
+            <label for="genre_id">Elegí un género:</label>
+            <br>
+            <select name="genre_id" id="genre_id">
+                <% for(let i = 0; i < genres.length; i++) { %>
+                    <option value="<%= genres[i].id %>" <%= genres[i].id == Movie.genre_id ? "selected" : "" %>><%= genres[i].name %></option>
+                <% } %>
+            </select>
+
             <p> <button class="botonAgregar" type="submit">Actualizar</button>
         
             <a  class="botonVolver" href="/movies">Listado de Películas</a></p>

@@ -3,12 +3,17 @@ const db = require('../database/models') //Como el archivo se llama index, no ha
 module.exports = {
     list: async (req,res) => {
         //Traer toda la info de las movies
-        const movies = await db.Movie.findAll() //El findAll() sirve para traer toda la info de db.Movie. Va a traer solamente lo declarado en el model 
+        const movies = await db.Movie.findAll({
+            include: [{association: "genre"},{association: "actors"}]
+        }) //El findAll() sirve para traer toda la info de db.Movie. Va a traer solamente lo declarado en el model 
+        console.log(movies[0])
         res.render("moviesList", {movies})
     },
     detail: async (req,res) => {
         //busqueda por ID
-        const movie = await db.Movie.findByPk(req.params.id)
+        const movie = await db.Movie.findByPk(req.params.id, {
+            include: ["actors"]
+        })
         res.render("MoviesDetail", {movie})
         
     },
@@ -28,8 +33,9 @@ module.exports = {
         res.render("recommendedMovies", {movies})
        
     },
-    add: (req,res) => {
-        res.render("moviesAdd")
+    add: async (req,res) => {
+        const genres = await db.Genre.findAll() 
+        res.render("moviesAdd", {genres})
     },
     create: async (req,res) => {
         const movieCreated = await db.Movie.create(req.body)
@@ -44,9 +50,11 @@ module.exports = {
     },
     edit: async (req,res) => {
         let id = req.params.id
-        let Movie = await db.Movie.findByPk(id)
-        console.log(Movie.dataValues)
-        res.render("moviesEdit", {Movie})
+        let Movie = await db.Movie.findByPk(id, {
+            include: [{association: "genre"}]
+        })
+        let genres = await db.Genre.findAll();
+        res.render("moviesEdit", {Movie, genres})
     },
     update: async (req,res) => {
         let id = req.params.id
@@ -70,6 +78,7 @@ module.exports = {
                 id: req.params.id
             }
         })
+        console.log(Movie)
         res.redirect("/movies")
     }
 }

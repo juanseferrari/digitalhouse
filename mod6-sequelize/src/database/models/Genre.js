@@ -21,6 +21,17 @@ module.exports = (sequelize) => {
         tableName: "genres"
     }
     )
+    //Asociaciones
+    model.associate = (models) => {
+        model.hasMany(models.Movie, {
+            as: "movies",
+            foreignKey: "genre_id"
+            
+            // El hasMany no hace falta agregar el foreignKey (foreignKey: "movie_id")
+
+        })
+    }
+
     return model;
 }
 

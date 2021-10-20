@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="titulo">Editar Género</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+      </figure>
+    <h1 class="titulo">Género a Editar:  <%= Genre.name %></h1>
+    <section class="formulario">
+        <form action="/genres/update/<%= Genre.id %>?_method=PUT" method="POST">
+            <label for="name">Name </label>
+            <p><input type="text" name="name" id="name" value="<%= Genre.name %>" required></p>
+            <br>
+            <p> <button class="botonAgregar" type="submit">Actualizar</button>
+        
+            <a  class="botonVolver" href="/genres">Listado de Géneros</a></p>
+        </form>
+    </section>
+</body>
+
+</html>
