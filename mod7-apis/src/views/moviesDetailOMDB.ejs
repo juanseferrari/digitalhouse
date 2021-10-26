@@ -13,16 +13,17 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
     </figure>
-    <h1><%= movie.title %> </h1>
+    <h1><%= movie.Title %> </h1>
+    <figure>
+        <img src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+    </figure>
     <br>
-    <p>RATING: <%= movie.rating %> </p>
-    <p>AWARDS: <%= movie.awards %> </p>
-    <p>LENGTH: <%= movie.length + ' min'%> </p>
-    <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <p>AÑO: <%= movie.Year %> </p>
+    <p>PREMIOS: <%= movie.Awards %> </p>
+    <p>DURACIÓN: <%= movie.Runtime + ' min'%> </p>
 
     <% if (isAdmin(locals.user)) { %>
     <a href="/movies/edit/<%=movie.id %>">Editar</a>
-    <a href="/movies/delete/<%=movie.id %>">Eliminar</a>
     <% } %>
 </body>
 

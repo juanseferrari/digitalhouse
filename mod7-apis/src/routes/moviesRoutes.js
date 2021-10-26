@@ -8,6 +8,9 @@ router.get("/movies/new", moviesController.new);
 router.get("/movies/recommended", moviesController.recommended);
 router.get("/movies/detail/:id", moviesController.detail);
 
+router.get("/movies/buscar", moviesController.search);
+
+
 router.get("/movies/add", assertAdmin, moviesController.add);
 router.post("/movies/create", assertAdmin, moviesController.create);
 

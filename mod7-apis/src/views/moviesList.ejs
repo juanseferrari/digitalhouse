@@ -13,6 +13,14 @@
     <figure>
         <img src="/img/logo-DH.png" alt="Logo Digital House">
     </figure>
+    <div class="buscar-titulo">
+        <form action="/movies/buscar" method="GET">
+            <label for="titulo">Titulo</label>
+            <input type="text" name="titulo" id="titulo">
+            <button class="boton-buscar" type="submit">Buscar</button>
+        </form>
+
+    </div>
     <h1>LISTADO DE PELÍCULAS</h1>
     <ul>
         <% for( let i = 0; i < movies.length; i++ ) { %>
