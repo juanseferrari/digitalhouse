@@ -1,4 +1,5 @@
-import Pelicula from './components/Pelicula'
+import Contador from './components/Contador';
+//import Pelicula from './components/Pelicula'
 import TiraPeliculas from './components/TiraPeliculas'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       </header>
       <main>
         <TiraPeliculas />
-
+        <Contador inicial={0}/>
       </main>
     </div>
   );

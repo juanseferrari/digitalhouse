@@ -2,7 +2,7 @@ import React from 'react'
 import Pelicula from './Pelicula';
 
 function TiraPeliculas() {
-    const usuarios = ["juanse", "pedro"]
+    //const usuarios = ["juanse", "pedro"]
     return (
         <div>
             <Pelicula generos={["Accion", "Aventura"]} rating="10" />
